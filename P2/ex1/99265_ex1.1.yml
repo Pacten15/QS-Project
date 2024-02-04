@@ -1,0 +1,153 @@
+# This YAML template is designed for capturing information about discovered
+# vulnerabilities.
+
+  # Start of the first vulnerability report entry
+  - bug:
+      type: Null Dereference
+      lineno: 76
+      class: tp
+      description: Found with infer -> pointer `map` last assigned on line 61 could be null and is dereferenced at line 76, column 3.
+  # End of the first vulnerability report entry
+
+  # Start of the second vulnerability report entry
+  - bug:
+      type: Memory Leak
+      lineno: 118
+      class: fp
+      description: Found with infer -> Pulse found a potential memory leak. Memory dynamically allocated at line 118 by call to `malloc`, is not freed after the last access at line 130, column 7. 
+  # End of the second vulnerability report entry
+
+  # Start of the third vulnerability report entry
+  - bug:
+      type: Memory Leak
+      lineno: 156
+      class: tp
+      description: Found with infer -> Pulse found a potential memory leak. Memory dynamically allocated at line 155 by call to `malloc`, is not freed after the last access at line 156, column 14.
+  # End of the third vulnerability report entry
+
+  # Start of the fourth vulnerability report entry
+  - bug:
+      type: Null Dereference
+      lineno: 156
+      class: tp
+      description: Found with infer ->  pointer `val` last assigned on line 155 could be null and is dereferenced by call to `memcpy()` at line 156, column 14.
+  # End of the fourth vulnerability report entry
+
+  # Start of the fifth vulnerability report entry
+  - bug:
+      type: Null Dereference
+      lineno: 163
+      class: fp
+      description: Found with infer -> Pulse found a potential null pointer dereference  on line 64 indirectly during the call to `hashmap_new()`in call to `hashmap_new()` .
+  # End of the fifth vulnerability report entry
+
+  # Start of the fifth vulnerability report entry
+  - bug:
+      type: Null Dereference
+      lineno: 72
+      class: fp
+      description: Found with clang -> Access to field 'size' results in a dereference of a null pointer (loaded from variable 'field')
+  # End of the fifth vulnerability report entry
+
+  # Start of the sixth vulnerability report entry
+  - bug:
+      type: Allocator sizeof operand mismatch	
+      lineno: 124
+      class: tp
+      description: Found with clang -> Result of 'malloc' is converted to a pointer of type 'char', which is incompatible with sizeof operand type 'char *'
+  # End of the sixth vulnerability report entry
+
+  # Start of the seventh vulnerability report entry
+  - bug:
+      type: Potential leak of memory pointed to by 'ret'
+      lineno: 170
+      class: tp
+      description: Found with clang -> Potential leak of memory pointed to by 'ret'
+  # End of the seventh vulnerability report entry
+
+  # Start of the eighth vulnerability report entry
+  - bug:
+      type: Potential insecure memory buffer bounds restriction in call 'strcpy'	
+      lineno: 125
+      class: fp
+      description: Found with clang using checker security.insecureAPI.strcpy -> Call to function 'strcpy' is insecure as it does not provide bounding of the memory buffer. Replace unbounded copy functions with analogous functions that support length arguments such as 'strlcpy'. CWE-119
+  # End of the eighth vulnerability report entry
+
+   # Start of the ninth vulnerability report entry
+  - bug:
+      type: Potential insecure memory buffer bounds restriction in call 'memcpy'
+      lineno: 132
+      class: fp
+      description: Found with clang using checker security.insecureAPI.DeprecatedOrUnsafeBufferHandling -> Call to function 'memcpy' is insecure as it does not provide security checks introduced in the C11 standard. Replace with analogous functions that support length arguments or provides boundary checks such as 'memcpy_s' in case of C11
+  # End of the ninth vulnerability report entry
+
+  # Start of the tenth vulnerability report entry
+  - bug:
+      type: Potential insecure memory buffer bounds restriction in call 'memcpy'
+      lineno: 138
+      class: fp
+      description: Found with clang using checker security.insecureAPI.DeprecatedOrUnsafeBufferHandling -> Call to function 'memcpy' is insecure as it does not provide security checks introduced in the C11 standard. Replace with analogous functions that support length arguments or provides boundary checks such as 'memcpy_s' in case of C11
+  # End of the tenth vulnerability report entry
+
+  # Start of the tenth vulnerability report entry
+  - bug:
+      type: Potential insecure memory buffer bounds restriction in call 'memcpy'
+      lineno: 120
+      class: fp
+      description: Found with clang using checker security.insecureAPI.DeprecatedOrUnsafeBufferHandling -> Call to function 'memcpy' is insecure as it does not provide security checks introduced in the C11 standard. Replace with analogous functions that support length arguments or provides boundary checks such as 'memcpy_s' in case of C11
+  # End of the tenth vulnerability report entry
+
+  # Start of the tenth vulnerability report entry
+  - bug:
+      type: Potential insecure memory buffer bounds restriction in call 'memcpy'
+      lineno: 156
+      class: fp
+      description: Found with clang using checker security.insecureAPI.DeprecatedOrUnsafeBufferHandling -> Call to function 'memcpy' is insecure as it does not provide security checks introduced in the C11 standard. Replace with analogous functions that support length arguments or provides boundary checks such as 'memcpy_s' in case of C11
+  # End of the tenth vulnerability report entry
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   
+
+
+
+
+
+
+
+
+
+  # You can continue adding more entries for additional vulnerabilities as needed.

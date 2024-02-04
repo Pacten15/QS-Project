@@ -1,0 +1,117 @@
+# This YAML template is designed for capturing information about discovered
+# vulnerabilities.
+
+report:
+  # Start of the first vulnerability report entry
+  - bug:
+      type: Null Dereference
+      lineno: 76
+      class: tp
+      description: Found with infer -> pointer `map` last assigned on line 61 could be null and is dereferenced at line 76, column 3.
+                   In function hashmap_new, if the allocation of the variable map fails, 
+                   which means the map varible would be null then if it try to acess variables 
+                   from map it would not work.
+  # End of the first vulnerability report entry
+
+  # Start of the second vulnerability report entry
+  - bug:
+      type: Memory Leak
+      lineno: 156
+      class: tp
+      description: Found with infer -> Pulse found a potential memory leak. Memory dynamically allocated at line 155 by call to `malloc`, is not freed after the last access at line 156, column 14.
+                   In function hashmap_get if the key of the entry is matching with the key given
+                   in the input, the allocation of memory for val is never freed after its used in the memcpy in
+                   line 156 then when called in main it might cause a memory leak.
+  # End of the second vulnerability report entry
+
+  # Start of the third vulnerability report entry
+  - bug:
+      type: Null Dereference
+      lineno: 156
+      class: tp
+      description: Found with infer ->  pointer `val` last assigned on line 155 could be null and is dereferenced by call to `memcpy()` at line 156, column 14.
+                   In function hashmap_get if the key of the entry is matching with the key given
+                   in the input, if the val is null it would lead to a null dereference.
+  # End of the third vulnerability report entry
+
+
+  # Start of the fourth vulnerability report entry
+  - bug:
+      type: Allocator sizeof operand mismatch	
+      lineno: 124
+      class: tp
+      description: Found with clang-analyzer -> Result of 'malloc' is converted to a pointer of type 'char', which is incompatible with sizeof operand type 'char *'
+                   In function hashmap_set when trying to allocate memory for entry->key in the malloc
+                   method we are giving it a size of the pointer to the key and not the lenght of the string that
+                   key points to.
+  # End of the fourth vulnerability report entry
+
+  # Start of the fifth vulnerability report entry
+  - bug:
+      type: Potential leak of memory pointed to by 'ret'
+      lineno: 170
+      class: tp
+      description: Found with clang-analyzer -> Potential leak of memory pointed to by 'ret'
+                   In function hashmap_get when called in line 169 the value associated to ret
+                   the function returns the memcpy which will leak memory in this case in ret
+                   due to the fact that the memory allocated to the val variable is not freed.
+  # End of the fifth vulnerability report entry
+
+  #Start of the sixth vulnerability report entry
+
+  - bug:
+        type: Null dereference
+        lineno: 167
+        class: fn
+        description: Not found with any tool on the original code.  
+                     In function hashmap_set when given as one of his arguments a map this is not verified if
+                     he is null or not, leading to a possible access violation to map's elements.
+
+   #End of the sixth vulnerability report entry
+
+   #Start of the seventh vulnerability report entry
+
+   - bug:
+        type: No checking for Successful allocation
+        lineno: 125
+        class: fn
+        description: In the hashmap_set function, when allocating memory for the entry->key and copying the key, 
+                     there's no check for a successful allocation. To fix this, you should check the result of malloc 
+                     and ensure that it was successful before proceeding.
+
+    #End of the seventh vulnerability report entry
+
+
+    #Start of the eighth vulnerability report entry
+
+   - bug:
+        type: Missing update field
+        lineno: 135
+        class: fn
+        description: In the hashmap_set function, when the key given has an argument exists in the entries filed but the value given has an argument is null 
+                     we also need to clarefy that the lenght of the new entry is zero. 
+                     
+    #End of the eighth vulnerability report entry
+
+    #Start of the ninth vulnerability report entry
+
+   - bug:
+        type: Missing update field
+        lineno: 131
+        class: fn
+        description: In the hashmap_set function, when the key given has an argument exists in the entries filed but the value given has an argument is
+                    different then null the memory allocated to the variable val was not freed. 
+                     
+    #End of the ninth vulnerability report entry
+
+
+
+
+
+
+
+
+
+  
+
+   
